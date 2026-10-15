@@ -1,25 +1,27 @@
 <mat-toolbar>
   <mat-toolbar-row>
-    <img
-      src="https://img.logo.dev/walmart.com?token=pk_bCrE6Q0hR5mzTDN3sVMQ4A"
-      alt="Walmart logo"
-      width="32"
-      height="32"
-    />
+    <div class="toolbar-brand">
+      <img
+        src="https://img.logo.dev/walmart.com?token=pk_bCrE6Q0hR5mzTDN3sVMQ4A"
+        alt="Walmart logo"
+        width="32"
+        height="32"
+      />
+      <h1>{{ 'toolbar.title' | translate }}</h1>
+    </div>
 
-    <h1>{{ 'toolbar.title' | translate }}</h1>
+    <nav class="toolbar-navigation" aria-label="Main navigation">
+      <a mat-button routerLink="/home" routerLinkActive="active">
+        {{ 'toolbar.home' | translate }}
+      </a>
 
-    <span class="mat-spacer"></span>
+      <a mat-button routerLink="/support/issues/new" routerLinkActive="active">
+        {{ 'toolbar.new-issue' | translate }}
+      </a>
+    </nav>
 
-    <a mat-button routerLink="/home" routerLinkActive="active">
-      {{ 'toolbar.home' | translate }}
-    </a>
-
-    <a mat-button routerLink="/support/issues/new" routerLinkActive="active">
-      {{ 'toolbar.new-issue' | translate }}
-    </a>
-
-    <app-language-switcher></app-language-switcher>
-
+    <div class="toolbar-language">
+      <app-language-switcher />
+    </div>
   </mat-toolbar-row>
 </mat-toolbar>
