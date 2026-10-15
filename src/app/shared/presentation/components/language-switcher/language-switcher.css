@@ -1,0 +1,13 @@
+{
+  display: flex;
+  align-items: center;
+}
+
+mat-button-toggle-group {
+  border-radius: 8px;
+}
+
+mat-button-toggle {
+  font-size: 12px;
+  font-weight: 600;
+}
