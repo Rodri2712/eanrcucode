@@ -5,7 +5,12 @@
     "new-issue": "Nueva incidencia"
   },
   "home": {
-    "title": "Plataforma de Soporte Rápido",
-    "content": "Gestiona y realiza seguimiento de las solicitudes de soporte desde un solo lugar."
+    "title": "Inicio",
+    "content": "Bienvenido a Walmart"
+  },
+  "page-not-found": {
+    "title": "Página no encontrada",
+    "message": "No se encontró la ruta solicitada: {{path}}",
+    "back-home": "Volver al inicio"
   }
 }
