@@ -1,0 +1,132 @@
+﻿{
+  "equipments": [
+    {
+      "id": 1,
+      "name": "Checkout Terminal 01",
+      "code": "POS-001",
+      "location": "Store 101",
+      "costPerHour": 25.5,
+      "defaultAction": "Inspect and repair the checkout terminal"
+    },
+    {
+      "id": 2,
+      "name": "Checkout Terminal 02",
+      "code": "POS-002",
+      "location": "Store 101",
+      "costPerHour": 30,
+      "defaultAction": "Diagnose and restore checkout operations"
+    },
+    {
+      "id": 3,
+      "name": "Self-Service Kiosk 01",
+      "code": "SSK-001",
+      "location": "Store 102",
+      "costPerHour": 18.75,
+      "defaultAction": "Inspect kiosk hardware and software"
+    },
+    {
+      "id": 4,
+      "name": "Conveyor Belt 01",
+      "code": "CVB-001",
+      "location": "Distribution Center 01",
+      "costPerHour": 85,
+      "defaultAction": "Inspect the conveyor belt motor and mechanism"
+    },
+    {
+      "id": 5,
+      "name": "Barcode Scanner 01",
+      "code": "SCN-001",
+      "location": "Store 103",
+      "costPerHour": 12.5,
+      "defaultAction": "Test scanner connectivity and replace faulty components"
+    },
+    {
+      "id": 6,
+      "name": "Refrigeration Unit 01",
+      "code": "REF-001",
+      "location": "Store 104",
+      "costPerHour": 65,
+      "defaultAction": "Check refrigeration temperature and cooling system"
+    }
+  ],
+  "issues": [
+    {
+      "id": 1,
+      "equipmentId": 1,
+      "issueType": "NO_OPERATION",
+      "status": "OPEN",
+      "description": "Checkout terminal does not start",
+      "registeredAt": "2026-10-13T08:30:00.000Z"
+    },
+    {
+      "id": 2,
+      "equipmentId": 4,
+      "issueType": "SLOW_OPERATION",
+      "status": "OPEN",
+      "description": "Conveyor belt is moving slower than usual",
+      "registeredAt": "2026-10-12T10:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "equipmentId": 2,
+      "issueType": "WRONG_OPERATION",
+      "status": "OPEN",
+      "description": "Checkout terminal calculates the total incorrectly",
+      "registeredAt": "2026-10-14T09:15:00.000Z"
+    },
+    {
+      "id": 4,
+      "equipmentId": 3,
+      "issueType": "NO_OPERATION",
+      "status": "CLOSED",
+      "description": "Self-service kiosk lost network connectivity",
+      "registeredAt": "2026-10-10T14:00:00.000Z"
+    },
+    {
+      "id": 5,
+      "equipmentId": 6,
+      "issueType": "SLOW_OPERATION",
+      "status": "OPEN",
+      "description": "Refrigeration unit takes too long to reach target temperature",
+      "registeredAt": "2026-10-11T06:45:00.000Z"
+    }
+  ],
+  "service-orders": [
+    {
+      "id": 1,
+      "issueId": 1,
+      "equipmentId": 1,
+      "priority": "HIGH",
+      "status": "OPEN",
+      "neededAction": "Inspect and repair the checkout terminal",
+      "createdAt": "2026-10-13T08:35:00.000Z"
+    },
+    {
+      "id": 2,
+      "issueId": 2,
+      "equipmentId": 4,
+      "priority": "MEDIUM",
+      "status": "OPEN",
+      "neededAction": "Inspect the conveyor belt motor and mechanism",
+      "createdAt": "2026-10-12T10:10:00.000Z"
+    },
+    {
+      "id": 3,
+      "issueId": 3,
+      "equipmentId": 2,
+      "priority": "HIGH",
+      "status": "OPEN",
+      "neededAction": "Diagnose and restore checkout operations",
+      "createdAt": "2026-10-14T09:20:00.000Z"
+    },
+    {
+      "id": 4,
+      "issueId": 5,
+      "equipmentId": 6,
+      "priority": "LOW",
+      "status": "OPEN",
+      "neededAction": "Check refrigeration temperature and cooling system",
+      "createdAt": "2026-10-11T06:50:00.000Z"
+    }
+  ]
+}
