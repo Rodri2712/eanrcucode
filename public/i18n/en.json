@@ -6,7 +6,9 @@
   },
   "home": {
     "title": "Home",
-    "content": "Welcome to Walmart"
+    "content": "Welcome to Walmart",
+    "issue-analytics": "Issue Analytics",
+    "next-service-order": "Next Service Order"
   },
   "page-not-found": {
     "title": "Page Not Found",
