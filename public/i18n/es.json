@@ -6,7 +6,9 @@
   },
   "home": {
     "title": "Inicio",
-    "content": "Bienvenido a Walmart"
+    "content": "Bienvenido a Walmart",
+    "issue-analytics": "Análisis de incidencias",
+    "next-service-order": "Próxima orden de servicio"
   },
   "page-not-found": {
     "title": "Página no encontrada",
