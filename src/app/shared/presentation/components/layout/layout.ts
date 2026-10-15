@@ -1,27 +1,11 @@
-import { Component, signal } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { TranslatePipe } from '@ngx-translate/core';
-import { LanguageSwitcher } from '../language-switcher/language-switcher';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { Toolbar } from '../toolbar/toolbar';
 
 @Component({
   selector: 'app-layout',
-  imports: [
-    RouterOutlet,
-    RouterLink,
-    MatToolbarModule,
-    MatButtonModule,
-    RouterLinkActive,
-    TranslatePipe,
-    LanguageSwitcher,
-  ],
+  imports: [RouterOutlet, Toolbar],
   templateUrl: './layout.html',
   styleUrl: './layout.css',
 })
-export class Layout {
-  options = signal([
-    { link: '/home', label: 'toolbar.home' },
-    { link: '/support/issues/new', label: 'toolbar.new-issue' },
-  ]);
-}
+export class Layout {}
