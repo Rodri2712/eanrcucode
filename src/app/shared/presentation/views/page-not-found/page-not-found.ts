@@ -1,11 +1,18 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-page-not-found',
-  imports: [RouterLink, TranslatePipe],
+  imports: [MatButtonModule, RouterLink, TranslatePipe],
   templateUrl: './page-not-found.html',
   styleUrl: './page-not-found.css',
 })
-export class PageNotFound {}
+export class PageNotFound {
+  private readonly router = inject(Router);
+
+  protected get currentPath(): string {
+    return this.router.url;
+  }
+}
