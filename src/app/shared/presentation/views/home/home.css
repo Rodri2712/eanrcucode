@@ -10,17 +10,69 @@
   padding: 40px 32px;
 }
 
-h1 {
-  margin: 0 0 16px;
+.home-header {
+  margin-bottom: 36px;
+}
+
+.home-header h1 {
+  margin: 0 0 12px;
   color: #002d58;
   font-size: 32px;
   font-weight: 700;
   line-height: 1.25;
 }
 
-p {
+.home-header p {
   margin: 0;
   color: #4b5563;
   font-size: 16px;
   line-height: 1.6;
+}
+
+.home-section {
+  margin-bottom: 36px;
+}
+
+.home-section h2 {
+  margin: 0 0 20px;
+  color: #002d58;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.issue-analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.next-service-order {
+  width: 100%;
+  max-width: 720px;
+}
+
+@media (max-width: 900px) {
+  .issue-analytics-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .container-with-spacing {
+    padding: 28px 16px;
+  }
+
+  .home-header h1 {
+    font-size: 28px;
+  }
+
+  .home-section h2 {
+    font-size: 21px;
+  }
+
+  .issue-analytics-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
 }
