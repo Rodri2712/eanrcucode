@@ -4,6 +4,8 @@ import { Equipment } from '../domain/model/equipment';
 import { ServiceOrder } from '../domain/model/service-order';
 import { EquipmentApi } from '../infrastructure/api/equipment-api';
 import { ServiceOrderApi } from '../infrastructure/api/service-order-api';
+import { CreateServiceOrderRequest } from './request/create-service-order-request';
+import { CreateServiceOrderResponse } from './response/create-service-order-response';
 
 @Injectable({
   providedIn: 'root',
@@ -28,7 +30,9 @@ export class MaintenanceService {
     return this.serviceOrderApi.getById<ServiceOrder>(id);
   }
 
-  createServiceOrder(serviceOrder: Omit<ServiceOrder, 'id'>): Observable<ServiceOrder> {
-    return this.serviceOrderApi.create<Omit<ServiceOrder, 'id'>, ServiceOrder>(serviceOrder);
+  createServiceOrder(request: CreateServiceOrderRequest): Observable<CreateServiceOrderResponse> {
+    return this.serviceOrderApi.create<CreateServiceOrderRequest, CreateServiceOrderResponse>(
+      request,
+    );
   }
 }
