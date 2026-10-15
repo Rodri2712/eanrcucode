@@ -1,13 +1,22 @@
-:host {
+{
   display: flex;
   align-items: center;
 }
 
 mat-button-toggle-group {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 8px;
+  background-color: #ffffff;
 }
 
 mat-button-toggle {
+  color: #0071ce;
   font-size: 12px;
   font-weight: 600;
+}
+
+mat-button-toggle.mat-button-toggle-checked {
+  background-color: #ffc220;
+  color: #002d58;
 }
