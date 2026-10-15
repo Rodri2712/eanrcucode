@@ -5,7 +5,12 @@
     "new-issue": "New Issue"
   },
   "home": {
-    "title": "Rapid Support Platform",
-    "content": "Manage and track support requests in one place."
+    "title": "Home",
+    "content": "Welcome to Walmart"
+  },
+  "page-not-found": {
+    "title": "Page Not Found",
+    "message": "The requested route was not found: {{path}}",
+    "back-home": "Back to Home"
   }
 }
