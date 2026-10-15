@@ -1,0 +1,11 @@
+{
+  "toolbar": {
+    "title": "Walmart Rapid Support Platform",
+    "home": "Home",
+    "new-issue": "New Issue"
+  },
+  "home": {
+    "title": "Rapid Support Platform",
+    "content": "Manage and track support requests in one place."
+  }
+}
