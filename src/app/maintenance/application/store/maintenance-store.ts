@@ -2,6 +2,7 @@ import { Injectable, computed, inject, signal } from '@angular/core';
 import { finalize } from 'rxjs';
 import { Equipment } from '../../domain/model/equipment';
 import { ServiceOrder } from '../../domain/model/service-order';
+import { CreateServiceOrderRequest } from '../request/create-service-order-request';
 import { MaintenanceService } from '../maintenance-service';
 
 @Injectable({
@@ -53,6 +54,21 @@ export class MaintenanceStore {
       .subscribe({
         next: (orders) => this.serviceOrderState.set(orders),
         error: () => this.errorState.set('Failed to load service orders.'),
+      });
+  }
+
+  createServiceOrder(request: CreateServiceOrderRequest): void {
+    this.loadingState.set(true);
+    this.errorState.set(null);
+
+    this.maintenanceService
+      .createServiceOrder(request)
+      .pipe(finalize(() => this.loadingState.set(false)))
+      .subscribe({
+        next: (response) => {
+          this.serviceOrderState.update((orders) => [...orders, response]);
+        },
+        error: () => this.errorState.set('Failed to create service order.'),
       });
   }
 }
