@@ -1,0 +1,14 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <h1>{{ 'toolbar.title' | translate }}</h1>
+    <span class="mat-spacer"></span>
+
+    <a mat-button routerLink="/home" routerLinkActive="active">
+      {{ 'toolbar.home' | translate }}
+    </a>
+
+    <a mat-button routerLink="/support/issues/new" routerLinkActive="active">
+      {{ 'toolbar.new-issue' | translate }}
+    </a>
+  </mat-toolbar-row>
+</mat-toolbar>
