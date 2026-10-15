@@ -1,0 +1,11 @@
+{
+  "toolbar": {
+    "title": "Plataforma Walmart de Soporte Rápido",
+    "home": "Inicio",
+    "new-issue": "Nueva incidencia"
+  },
+  "home": {
+    "title": "Plataforma de Soporte Rápido",
+    "content": "Gestiona y realiza seguimiento de las solicitudes de soporte desde un solo lugar."
+  }
+}
