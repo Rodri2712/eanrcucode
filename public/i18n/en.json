@@ -1,0 +1,18 @@
+{
+  "toolbar": {
+    "title": "Walmart Rapid Support Platform",
+    "home": "Home",
+    "new-issue": "New Issue"
+  },
+  "home": {
+    "title": "Home",
+    "content": "Welcome to Walmart",
+    "issue-analytics": "Issue Analytics",
+    "next-service-order": "Next Service Order"
+  },
+  "page-not-found": {
+    "title": "Page Not Found",
+    "message": "The requested route was not found: {{path}}",
+    "back-home": "Back to Home"
+  }
+}

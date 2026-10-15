@@ -1,0 +1,7 @@
+<main class="container-with-spacing">
+  <h1>{{ 'page-not-found.title' | translate }}</h1>
+  <p>{{ 'page-not-found.message' | translate: { path: currentPath } }}</p>
+  <a mat-raised-button color="primary" routerLink="/home">
+    {{ 'page-not-found.back-home' | translate }}
+  </a>
+</main>

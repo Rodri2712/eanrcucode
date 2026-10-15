@@ -1,0 +1,18 @@
+{
+  "toolbar": {
+    "title": "Plataforma Walmart de Soporte Rápido",
+    "home": "Inicio",
+    "new-issue": "Nueva incidencia"
+  },
+  "home": {
+    "title": "Inicio",
+    "content": "Bienvenido a Walmart",
+    "issue-analytics": "Análisis de incidencias",
+    "next-service-order": "Próxima orden de servicio"
+  },
+  "page-not-found": {
+    "title": "Página no encontrada",
+    "message": "No se encontró la ruta solicitada: {{path}}",
+    "back-home": "Volver al inicio"
+  }
+}

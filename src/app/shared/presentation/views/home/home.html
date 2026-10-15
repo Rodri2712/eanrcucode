@@ -1,0 +1,40 @@
+<main class="container-with-spacing">
+  <header class="home-header">
+    <h1>{{ 'home.title' | translate }}</h1>
+    <p>{{ 'home.content' | translate }}</p>
+  </header>
+
+  <section
+    class="home-section"
+    aria-labelledby="issue-analytics-title"
+  >
+    <h2 id="issue-analytics-title">
+      {{ 'home.issue-analytics' | translate }}
+    </h2>
+
+    <div
+      class="issue-analytics-grid"
+      role="region"
+      [attr.aria-label]="'home.issue-analytics' | translate"
+    >
+      <!-- Issue Type Stats components will be rendered here. -->
+    </div>
+  </section>
+
+  <section
+    class="home-section"
+    aria-labelledby="next-service-order-title"
+  >
+    <h2 id="next-service-order-title">
+      {{ 'home.next-service-order' | translate }}
+    </h2>
+
+    <div
+      class="next-service-order"
+      role="region"
+      [attr.aria-label]="'home.next-service-order' | translate"
+    >
+      <!-- The oldest HIGH-priority Service Order will be displayed here. -->
+    </div>
+  </section>
+</main>
