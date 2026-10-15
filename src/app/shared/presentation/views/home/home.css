@@ -1,3 +1,26 @@
+{
+  display: block;
+  min-height: calc(100vh - 64px);
+  background-color: #f5f7fa;
+}
+
 .container-with-spacing {
-  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 32px;
+}
+
+h1 {
+  margin: 0 0 16px;
+  color: #002d58;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+p {
+  margin: 0;
+  color: #4b5563;
+  font-size: 16px;
+  line-height: 1.6;
 }
