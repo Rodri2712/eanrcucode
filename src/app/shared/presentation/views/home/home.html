@@ -59,15 +59,12 @@
       role="region"
       [attr.aria-label]="'home.next-service-order' | translate"
     >
-      @if (maintenanceStore.loadingEquipments() || maintenanceStore.loadingServiceOrders()) {
+      @if (maintenanceStore.loadingServiceOrders()) {
         <p role="status">{{ 'home.loading' | translate }}</p>
-      } @else if (maintenanceStore.equipmentError() || maintenanceStore.serviceOrderError()) {
-        @if (maintenanceStore.equipmentError()) {
-          <p role="alert">{{ maintenanceStore.equipmentError() | translate }}</p>
-        }
-        @if (maintenanceStore.serviceOrderError()) {
-          <p role="alert">{{ maintenanceStore.serviceOrderError() | translate }}</p>
-        }
+      } @else if (maintenanceStore.serviceOrderError()) {
+        <p role="alert">
+          {{ maintenanceStore.serviceOrderError() | translate }}
+        </p>
       } @else if (maintenanceStore.nextHighPriorityOrder(); as order) {
         <article class="service-order-card">
           <h3>
