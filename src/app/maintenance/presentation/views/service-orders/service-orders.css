@@ -1,0 +1,24 @@
+.service-order-card {
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid #d9d9d9;
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+}
+
+.service-order-card h3 {
+  margin-top: 0;
+}
+
+.service-order-card p {
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.service-order-card p:last-child {
+  margin-bottom: 0;
+}
+
+section[aria-labelledby='service-orders-list-title'] {
+  margin-top: 1.5rem;
+}
