@@ -2,6 +2,7 @@
   "toolbar": {
     "title": "Plataforma Walmart de Soporte Rápido",
     "home": "Inicio",
+    "service-orders": "Órdenes de servicio",
     "new-issue": "Nueva incidencia"
   },
   "home": {
