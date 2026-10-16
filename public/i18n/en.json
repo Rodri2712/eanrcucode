@@ -61,5 +61,12 @@
     "title": "Page Not Found",
     "message": "The requested route was not found: {{path}}",
     "back-home": "Back to Home"
+  },
+  "maintenance": {
+    "errors": {
+      "load-equipment": "Failed to load equipment.",
+      "load-service-orders": "Failed to load service orders.",
+      "create-service-order": "Failed to create service order."
+    }
   }
 }
