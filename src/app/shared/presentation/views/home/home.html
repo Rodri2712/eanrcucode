@@ -70,8 +70,17 @@
           </h3>
 
           <p>
-            <strong>{{ 'home.equipment-id' | translate }}</strong>
-            {{ order.equipmentId }}
+            <strong>{{ 'home.equipment' | translate }}</strong>
+            {{ maintenanceStore.equipments().find(
+            equipment => equipment.id === order.equipmentId
+          )?.name ?? ('home.unknown-equipment' | translate) }}
+          </p>
+
+          <p>
+            <strong>{{ 'home.equipment-code' | translate }}</strong>
+            {{ maintenanceStore.equipments().find(
+            equipment => equipment.id === order.equipmentId
+          )?.code ?? '—' }}
           </p>
 
           <p>
