@@ -61,5 +61,12 @@
     "title": "Página no encontrada",
     "message": "No se encontró la ruta solicitada: {{path}}",
     "back-home": "Volver al inicio"
+  },
+  "maintenance": {
+    "errors": {
+      "load-equipment": "No se pudieron cargar los equipos.",
+      "load-service-orders": "No se pudieron cargar las órdenes de servicio.",
+      "create-service-order": "No se pudo crear la orden de servicio."
+    }
   }
 }
