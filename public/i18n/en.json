@@ -2,6 +2,7 @@
   "toolbar": {
     "title": "Walmart Rapid Support Platform",
     "home": "Home",
+    "service-orders": "Service Orders",
     "new-issue": "New Issue"
   },
   "home": {
