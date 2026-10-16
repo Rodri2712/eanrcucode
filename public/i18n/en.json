@@ -30,6 +30,32 @@
     "status-COMPLETED": "Completed",
     "status-CANCELLED": "Cancelled"
   },
+  "service-orders": {
+    "title": "Service Orders",
+    "description": "Review maintenance service orders and their current status.",
+    "loading": "Loading service orders...",
+    "empty": "No service orders available.",
+    "list-title": "All Service Orders",
+    "order-number": "Service Order",
+    "equipment": "Equipment:",
+    "equipment-code": "Equipment code:",
+    "unknown-equipment": "Unknown equipment",
+    "priority": "Priority:",
+    "status": "Status:",
+    "needed-action": "Required Action:",
+    "created-at": "Created:",
+    "priorities": {
+      "HIGH": "High",
+      "MEDIUM": "Medium",
+      "LOW": "Low"
+    },
+    "statuses": {
+      "OPEN": "Open",
+      "IN_PROGRESS": "In Progress",
+      "COMPLETED": "Completed",
+      "CANCELLED": "Cancelled"
+    }
+  },
   "page-not-found": {
     "title": "Page Not Found",
     "message": "The requested route was not found: {{path}}",
