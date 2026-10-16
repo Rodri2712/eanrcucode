@@ -45,7 +45,7 @@ export class MaintenanceStore {
       .pipe(finalize(() => this.loadingState.set(false)))
       .subscribe({
         next: (equipments) => this.equipmentState.set(equipments),
-        error: () => this.errorState.set('Failed to load equipment.'),
+        error: () => this.errorState.set('maintenance.errors.load-equipment'),
       });
   }
 
@@ -58,7 +58,7 @@ export class MaintenanceStore {
       .pipe(finalize(() => this.loadingState.set(false)))
       .subscribe({
         next: (orders) => this.serviceOrderState.set(orders),
-        error: () => this.errorState.set('Failed to load service orders.'),
+        error: () => this.errorState.set('maintenance.errors.load-service-orders'),
       });
   }
 
@@ -73,7 +73,7 @@ export class MaintenanceStore {
         next: (response) => {
           this.serviceOrderState.update((orders) => [...orders, response]);
         },
-        error: () => this.errorState.set('Failed to create service order.'),
+        error: () => this.errorState.set('maintenance.errors.create-service-order'),
       });
   }
 }
