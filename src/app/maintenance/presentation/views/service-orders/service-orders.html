@@ -4,13 +4,13 @@
     <p>{{ 'service-orders.description' | translate }}</p>
   </header>
 
-  @if (maintenanceStore.loading()) {
+  @if (maintenanceStore.loadingServiceOrders()) {
     <p role="status" aria-live="polite">
       {{ 'service-orders.loading' | translate }}
     </p>
-  } @else if (maintenanceStore.error()) {
+  } @else if (maintenanceStore.serviceOrderError()) {
     <p role="alert">
-      {{ maintenanceStore.error() | translate }}
+      {{ maintenanceStore.serviceOrderError() | translate }}
     </p>
   } @else if (maintenanceStore.serviceOrders().length === 0) {
     <p role="status">
@@ -68,5 +68,7 @@
         </article>
       }
     </section>
+
   }
+
 </main>
