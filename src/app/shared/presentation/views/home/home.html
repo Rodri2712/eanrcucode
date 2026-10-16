@@ -17,7 +17,32 @@
       role="region"
       [attr.aria-label]="'home.issue-analytics' | translate"
     >
-      <!-- Issue Type Stats components will be rendered here. -->
+      @if (maintenanceStore.loading()) {
+        <p role="status">{{ 'home.loading' | translate }}</p>
+      } @else if (maintenanceStore.error()) {
+        <p role="alert">{{ maintenanceStore.error() | translate }}</p>
+      } @else {
+        <article class="analytics-card">
+          <h3>{{ 'home.equipment-count' | translate }}</h3>
+          <p>{{ maintenanceStore.equipments().length }}</p>
+        </article>
+
+        <article class="analytics-card">
+          <h3>{{ 'home.service-order-count' | translate }}</h3>
+          <p>{{ maintenanceStore.serviceOrders().length }}</p>
+        </article>
+
+        <article class="analytics-card">
+          <h3>{{ 'home.high-priority-count' | translate }}</h3>
+          <p>
+            {{
+              maintenanceStore.serviceOrders().filter(
+                order => order.priority === 'HIGH'
+              ).length
+            }}
+          </p>
+        </article>
+      }
     </div>
   </section>
 
@@ -34,7 +59,44 @@
       role="region"
       [attr.aria-label]="'home.next-service-order' | translate"
     >
-      <!-- The oldest HIGH-priority Service Order will be displayed here. -->
+      @if (maintenanceStore.loading()) {
+        <p role="status">{{ 'home.loading' | translate }}</p>
+      } @else if (maintenanceStore.error()) {
+        <p role="alert">{{ maintenanceStore.error() | translate }}</p>
+      } @else if (maintenanceStore.nextHighPriorityOrder(); as order) {
+        <article class="service-order-card">
+          <h3>
+            {{ 'home.service-order-number' | translate: { id: order.id } }}
+          </h3>
+
+          <p>
+            <strong>{{ 'home.equipment-id' | translate }}</strong>
+            {{ order.equipmentId }}
+          </p>
+
+          <p>
+            <strong>{{ 'home.priority' | translate }}</strong>
+            {{ 'home.priority-' + order.priority | translate }}
+          </p>
+
+          <p>
+            <strong>{{ 'home.status' | translate }}</strong>
+            {{ 'home.status-' + order.status | translate }}
+          </p>
+
+          <p>
+            <strong>{{ 'home.needed-action' | translate }}</strong>
+            {{ order.neededAction }}
+          </p>
+
+          <p>
+            <strong>{{ 'home.created-at' | translate }}</strong>
+            {{ order.createdAt | date: 'medium' }}
+          </p>
+        </article>
+      } @else {
+        <p>{{ 'home.no-high-priority-orders' | translate }}</p>
+      }
     </div>
   </section>
 </main>
