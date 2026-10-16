@@ -17,10 +17,15 @@
       role="region"
       [attr.aria-label]="'home.issue-analytics' | translate"
     >
-      @if (maintenanceStore.loading()) {
+      @if (maintenanceStore.loadingEquipments() || maintenanceStore.loadingServiceOrders()) {
         <p role="status">{{ 'home.loading' | translate }}</p>
-      } @else if (maintenanceStore.error()) {
-        <p role="alert">{{ maintenanceStore.error() | translate }}</p>
+      } @else if (maintenanceStore.equipmentError() || maintenanceStore.serviceOrderError()) {
+        @if (maintenanceStore.equipmentError()) {
+          <p role="alert">{{ maintenanceStore.equipmentError() | translate }}</p>
+        }
+        @if (maintenanceStore.serviceOrderError()) {
+          <p role="alert">{{ maintenanceStore.serviceOrderError() | translate }}</p>
+        }
       } @else {
         <article class="analytics-card">
           <h3>{{ 'home.equipment-count' | translate }}</h3>
@@ -38,6 +43,7 @@
         </article>
       }
     </div>
+
   </section>
 
   <section
@@ -53,10 +59,15 @@
       role="region"
       [attr.aria-label]="'home.next-service-order' | translate"
     >
-      @if (maintenanceStore.loading()) {
+      @if (maintenanceStore.loadingEquipments() || maintenanceStore.loadingServiceOrders()) {
         <p role="status">{{ 'home.loading' | translate }}</p>
-      } @else if (maintenanceStore.error()) {
-        <p role="alert">{{ maintenanceStore.error() | translate }}</p>
+      } @else if (maintenanceStore.equipmentError() || maintenanceStore.serviceOrderError()) {
+        @if (maintenanceStore.equipmentError()) {
+          <p role="alert">{{ maintenanceStore.equipmentError() | translate }}</p>
+        }
+        @if (maintenanceStore.serviceOrderError()) {
+          <p role="alert">{{ maintenanceStore.serviceOrderError() | translate }}</p>
+        }
       } @else if (maintenanceStore.nextHighPriorityOrder(); as order) {
         <article class="service-order-card">
           <h3>
@@ -101,5 +112,6 @@
         <p>{{ 'home.no-high-priority-orders' | translate }}</p>
       }
     </div>
+
   </section>
 </main>
