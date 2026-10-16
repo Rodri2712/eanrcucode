@@ -30,6 +30,32 @@
     "status-COMPLETED": "Completada",
     "status-CANCELLED": "Cancelada"
   },
+  "service-orders": {
+    "title": "Órdenes de servicio",
+    "description": "Consulta las órdenes de mantenimiento y su estado actual.",
+    "loading": "Cargando órdenes de servicio...",
+    "empty": "No hay órdenes de servicio disponibles.",
+    "list-title": "Todas las órdenes de servicio",
+    "order-number": "Orden de servicio",
+    "equipment": "Equipo:",
+    "equipment-code": "Código del equipo:",
+    "unknown-equipment": "Equipo desconocido",
+    "priority": "Prioridad:",
+    "status": "Estado:",
+    "needed-action": "Acción requerida:",
+    "created-at": "Fecha de creación:",
+    "priorities": {
+      "HIGH": "Alta",
+      "MEDIUM": "Media",
+      "LOW": "Baja"
+    },
+    "statuses": {
+      "OPEN": "Abierta",
+      "IN_PROGRESS": "En progreso",
+      "COMPLETED": "Completada",
+      "CANCELLED": "Cancelada"
+    }
+  },
   "page-not-found": {
     "title": "Página no encontrada",
     "message": "No se encontró la ruta solicitada: {{path}}",
