@@ -34,13 +34,7 @@
 
         <article class="analytics-card">
           <h3>{{ 'home.high-priority-count' | translate }}</h3>
-          <p>
-            {{
-              maintenanceStore.serviceOrders().filter(
-                order => order.priority === 'HIGH'
-              ).length
-            }}
-          </p>
+          <p>{{ maintenanceStore.highPriorityOrderCount() }}</p>
         </article>
       }
     </div>
