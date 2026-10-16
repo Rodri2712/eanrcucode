@@ -24,6 +24,7 @@ export class MaintenanceStore {
     () => this.serviceOrderState().filter((order) => order.priority === 'HIGH').length,
   );
   readonly serviceOrderCount = computed(() => this.serviceOrderState().length);
+  readonly equipmentCount = computed(() => this.equipmentState().length);
 
   readonly nextHighPriorityOrder = computed(
     () =>
