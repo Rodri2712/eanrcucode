@@ -20,6 +20,9 @@ export class MaintenanceStore {
   readonly serviceOrders = this.serviceOrderState.asReadonly();
   readonly loading = this.loadingState.asReadonly();
   readonly error = this.errorState.asReadonly();
+  readonly highPriorityOrderCount = computed(
+    () => this.serviceOrderState().filter((order) => order.priority === 'HIGH').length,
+  );
 
   readonly nextHighPriorityOrder = computed(
     () =>
