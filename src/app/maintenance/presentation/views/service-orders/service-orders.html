@@ -1,0 +1,72 @@
+<main class="container-with-spacing">
+  <header>
+    <h1>{{ 'service-orders.title' | translate }}</h1>
+    <p>{{ 'service-orders.description' | translate }}</p>
+  </header>
+
+  @if (maintenanceStore.loading()) {
+    <p role="status" aria-live="polite">
+      {{ 'service-orders.loading' | translate }}
+    </p>
+  } @else if (maintenanceStore.error()) {
+    <p role="alert">
+      {{ maintenanceStore.error() | translate }}
+    </p>
+  } @else if (maintenanceStore.serviceOrders().length === 0) {
+    <p role="status">
+      {{ 'service-orders.empty' | translate }}
+    </p>
+  } @else {
+    <section aria-labelledby="service-orders-list-title">
+      <h2 id="service-orders-list-title">
+        {{ 'service-orders.list-title' | translate }}
+      </h2>
+
+      @for (order of maintenanceStore.serviceOrders(); track order.id) {
+        <article class="service-order-card">
+          <h3>
+            {{ 'service-orders.order-number' | translate }} #{{ order.id }}
+          </h3>
+
+          <p>
+            <strong>{{ 'service-orders.equipment' | translate }}</strong>
+            {{
+              maintenanceStore.equipments().find(
+                equipment => equipment.id === order.equipmentId
+              )?.name ?? ('service-orders.unknown-equipment' | translate)
+            }}
+          </p>
+
+          <p>
+            <strong>{{ 'service-orders.equipment-code' | translate }}</strong>
+            {{
+              maintenanceStore.equipments().find(
+                equipment => equipment.id === order.equipmentId
+              )?.code ?? '—'
+            }}
+          </p>
+
+          <p>
+            <strong>{{ 'service-orders.priority' | translate }}</strong>
+            {{ ('service-orders.priorities.' + order.priority) | translate }}
+          </p>
+
+          <p>
+            <strong>{{ 'service-orders.status' | translate }}</strong>
+            {{ ('service-orders.statuses.' + order.status) | translate }}
+          </p>
+
+          <p>
+            <strong>{{ 'service-orders.needed-action' | translate }}</strong>
+            {{ order.neededAction }}
+          </p>
+
+          <p>
+            <strong>{{ 'service-orders.created-at' | translate }}</strong>
+            {{ order.createdAt | date: 'medium' }}
+          </p>
+        </article>
+      }
+    </section>
+  }
+</main>
