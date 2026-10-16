@@ -13,13 +13,35 @@ export class MaintenanceStore {
 
   private readonly equipmentState = signal<Equipment[]>([]);
   private readonly serviceOrderState = signal<ServiceOrder[]>([]);
-  private readonly loadingState = signal(false);
-  private readonly errorState = signal<string | null>(null);
+  private readonly loadingEquipmentsState = signal(false);
+  private readonly loadingServiceOrdersState = signal(false);
+  private readonly creatingServiceOrderState = signal(false);
+  private readonly equipmentErrorState = signal<string | null>(null);
+  private readonly serviceOrderErrorState = signal<string | null>(null);
+  private readonly createServiceOrderErrorState = signal<string | null>(null);
 
   readonly equipments = this.equipmentState.asReadonly();
   readonly serviceOrders = this.serviceOrderState.asReadonly();
-  readonly loading = this.loadingState.asReadonly();
-  readonly error = this.errorState.asReadonly();
+  readonly loadingEquipments = this.loadingEquipmentsState.asReadonly();
+  readonly loadingServiceOrders = this.loadingServiceOrdersState.asReadonly();
+  readonly creatingServiceOrder = this.creatingServiceOrderState.asReadonly();
+  readonly equipmentError = this.equipmentErrorState.asReadonly();
+  readonly serviceOrderError = this.serviceOrderErrorState.asReadonly();
+  readonly createServiceOrderError = this.createServiceOrderErrorState.asReadonly();
+
+  readonly loading = computed(
+    () =>
+      this.loadingEquipmentsState() ||
+      this.loadingServiceOrdersState() ||
+      this.creatingServiceOrderState(),
+  );
+  readonly error = computed(
+    () =>
+      this.equipmentErrorState() ??
+      this.serviceOrderErrorState() ??
+      this.createServiceOrderErrorState(),
+  );
+
   readonly highPriorityOrderCount = computed(
     () => this.serviceOrderState().filter((order) => order.priority === 'HIGH').length,
   );
@@ -37,43 +59,44 @@ export class MaintenanceStore {
   );
 
   loadEquipments(): void {
-    this.loadingState.set(true);
-    this.errorState.set(null);
+    this.loadingEquipmentsState.set(true);
+    this.equipmentErrorState.set(null);
 
     this.maintenanceService
       .getEquipments()
-      .pipe(finalize(() => this.loadingState.set(false)))
+      .pipe(finalize(() => this.loadingEquipmentsState.set(false)))
       .subscribe({
         next: (equipments) => this.equipmentState.set(equipments),
-        error: () => this.errorState.set('maintenance.errors.load-equipment'),
+        error: () => this.equipmentErrorState.set('maintenance.errors.load-equipment'),
       });
   }
 
   loadServiceOrders(): void {
-    this.loadingState.set(true);
-    this.errorState.set(null);
+    this.loadingServiceOrdersState.set(true);
+    this.serviceOrderErrorState.set(null);
 
     this.maintenanceService
       .getServiceOrders()
-      .pipe(finalize(() => this.loadingState.set(false)))
+      .pipe(finalize(() => this.loadingServiceOrdersState.set(false)))
       .subscribe({
         next: (orders) => this.serviceOrderState.set(orders),
-        error: () => this.errorState.set('maintenance.errors.load-service-orders'),
+        error: () => this.serviceOrderErrorState.set('maintenance.errors.load-service-orders'),
       });
   }
 
   createServiceOrder(request: CreateServiceOrderRequest): void {
-    this.loadingState.set(true);
-    this.errorState.set(null);
+    this.creatingServiceOrderState.set(true);
+    this.createServiceOrderErrorState.set(null);
 
     this.maintenanceService
       .createServiceOrder(request)
-      .pipe(finalize(() => this.loadingState.set(false)))
+      .pipe(finalize(() => this.creatingServiceOrderState.set(false)))
       .subscribe({
         next: (response) => {
           this.serviceOrderState.update((orders) => [...orders, response]);
         },
-        error: () => this.errorState.set('maintenance.errors.create-service-order'),
+        error: () =>
+          this.createServiceOrderErrorState.set('maintenance.errors.create-service-order'),
       });
   }
 }
